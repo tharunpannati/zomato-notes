@@ -1,0 +1,6 @@
+Database went down at 3am, restarted postgres service, monitoring looks stable now.
+High memory usage on API server, identified a N+1 query in the notes endpoint, fixed with join.
+Cache invalidation bug caused stale data for 10 minutes, deployed hotfix and cleared Redis.
+Load balancer health check was failing due to a misconfigured timeout, updated to 30s.
+Alert fired for disk space on logging server, archived old logs and freed up 40GB.
+Investigated slow response times, traced to an unindexed foreign key on owner_id, added index.
