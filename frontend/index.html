@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Zomato Notes</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ===== Sticky Navigation ===== -->
+  <nav id="main-nav">
+    <span class="nav-brand">🍕 Zomato Notes</span>
+    <span class="nav-subtitle">On-Call Knowledge Base</span>
+  </nav>
+
+  <div class="app-layout">
+
+    <!-- ===== Sidebar ===== -->
+    <aside class="sidebar">
+
+      <!-- Recursive nested-tag tree (Part 1B Task 7) -->
+      <h3>Browse Tags</h3>
+      <div id="tag-tree"></div>
+
+      <!-- Quick tag jump buttons (Part 2 Task 4) -->
+      <div class="quick-tags">
+        <h3>Quick Tag Jump</h3>
+        <button data-tag="work">work</button>
+        <button data-tag="health">health</button>
+        <button data-tag="recipes">recipes</button>
+        <button data-tag="travel">travel</button>
+        <button data-tag="random">random</button>
+      </div>
+
+    </aside>
+
+    <!-- ===== Main Content ===== -->
+    <main>
+
+      <!-- Search + Sort (Part 1B Task 6 + Part 2 Task 1) -->
+      <section>
+        <p class="section-heading">Search &amp; Sort</p>
+        <div id="search-bar">
+          <input type="text" id="search-input" placeholder="Search notes by tag or title…" />
+          <select id="sort-select">
+            <option value="">Sort by: Relevance (keyword)</option>
+            <option value="date">Sort by: Date</option>
+          </select>
+          <button id="btn-search">Search</button>
+        </div>
+        <div id="search-results"></div>
+      </section>
+
+      <!-- Exact-title lookup (Part 2 Task 2&3) -->
+      <section>
+        <p class="section-heading">Jump to Exact Title</p>
+        <div id="lookup-bar">
+          <input type="text" id="lookup-input" placeholder="Exact note title…" />
+          <select id="algo-select">
+            <option value="iterative">Binary Search: Iterative</option>
+            <option value="recursive">Binary Search: Recursive</option>
+          </select>
+          <button id="btn-lookup">Lookup</button>
+        </div>
+        <div id="lookup-result"></div>
+      </section>
+
+      <!-- Smart Search — Part 3 (visually distinct from keyword search) -->
+      <section>
+        <p class="section-heading">
+          <span class="smart-label">AI</span>&nbsp; Smart Search (Semantic)
+        </p>
+        <div id="smart-search-bar">
+          <input type="text" id="smart-input" placeholder="e.g. leg day exercise plan…" />
+          <button id="btn-smart">Smart Search</button>
+        </div>
+        <div id="smart-results"></div>
+      </section>
+
+      <!-- Add Note Form (Part 1B Task 4&5) -->
+      <section id="add-note-form">
+        <h2>＋ Add Note</h2>
+        <div class="form-row">
+          <input type="text" id="note-title" placeholder="Title (required)" maxlength="120" />
+          <input type="text" id="note-tag" placeholder="Tag (optional)" />
+        </div>
+        <textarea id="note-content" rows="3" placeholder="Content (required)"></textarea>
+        <p class="error-msg" id="form-error"></p>
+        <button type="submit" id="btn-add-note">Add Note</button>
+      </section>
+
+      <!-- Notes List (Part 1B Task 3) -->
+      <section>
+        <p class="section-heading">All Notes</p>
+        <div id="notes-list">
+          <p id="loading-msg">Loading notes…</p>
+          <p id="fetch-error"></p>
+        </div>
+      </section>
+
+    </main>
+  </div>
+
+  <!-- ===== Footer ===== -->
+  <footer>
+    Zomato Notes — Internal Knowledge Base &copy; 2026
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
